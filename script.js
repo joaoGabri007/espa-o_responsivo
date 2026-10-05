@@ -1,67 +1,33 @@
-const botao = document.getElementById('botao-tema');
-const body = document.body;
-
-// Pega o tema salvo
-const temasalvo = localStorage.getItem('tema');
-
-temaEscuro(temasalvo === 'escuro');
-
-// Função para trocar o tema
-function temaEscuro(tipo) {
-
-    if (tipo == true) {
-
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const botaoTema = document.getElementById('botao-tema');
+  
+    // Se por acaso o botão não for encontrado, encerra para evitar erros
+    if (!botaoTema) return;
+  
+    // VERIFICA O TEMA SALVO
+    const temaSalvo = localStorage.getItem('tema');
+  
+    if (temaSalvo === 'escuro') {
         body.classList.add('escuro');
-
-        botao.innerHTML = '<i class="fa-solid fa-sun"></i>';
-
+        botaoTema.textContent = '☀️ Tema';
     } else {
-
         body.classList.remove('escuro');
-
-        botao.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        botaoTema.textContent = '💡 Tema';
     }
-}
-
-// Botão do tema
-botao.addEventListener('click', () => {
-
-    const isescuro = body.classList.toggle('escuro');
-
-    temaEscuro(isescuro);
-
-    localStorage.setItem(
-        'tema',
-        isescuro ? 'escuro' : 'claro'
-    );
-});
-
-
-// Scroll suave para links
-const navLinks = document.querySelectorAll('#itens ul a.link');
-
-navLinks.forEach(link => {
-
-    link.addEventListener('click', function(e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(
-            this.getAttribute('href')
-        );
-
-        if (target) {
-
-            const headerHeight =
-                document.querySelector('header').offsetHeight;
-
-            const targetPosition =
-                target.offsetTop - headerHeight - 20;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+  
+    // BOTÃO TEMA
+    botaoTema.addEventListener('click', function(evento) {
+        evento.preventDefault();
+  
+        body.classList.toggle('escuro');
+  
+        if (body.classList.contains('escuro')) {
+            botaoTema.textContent = '☀️ Tema';
+            localStorage.setItem('tema', 'escuro');
+        } else {
+            botaoTema.textContent = '💡 Tema';
+            localStorage.setItem('tema', 'claro');
         }
     });
-});
+  });
