@@ -7,19 +7,210 @@
 
 html {
     scroll-behavior: smooth;
-} 
+}
+
+:root {
+    --fundo-principal: white;
+    --texto: black;
+    --fundo-card: green;
+}
 
 body.escuro {
-    --fundo-principal: #222222;
-    --texto: #e0e0e0;
-    --texto-inverso: #333333;
-    --destaque: #ff5522;
-    --destaque-inverso: #a73917;
-    --fundo-card: #444444;
-  }
+    --fundo-principal: #01002c;
+    --texto: white;
+    --fundo-card: #0b3800;
+}
 
 body {
-   /*line-height: 1.5em;*/
+    background-color: var(--fundo-principal);
+    color: var(--texto);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#burguer {
+    color: purple;
+}
+
+#burguer:hover {
+    color: rgba(128, 0, 128, 0.507);
+}
+
+i#burguer {
+    margin-left: 360px;
+    font-size: 40px;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    z-index: 999;
+
+    background-color: rgba(0, 0, 255, 0.767);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+menu > ul {
+    list-style: none;
+}
+
+menu > ul > li > a {
+    display: block;
+    padding: 8px 10px;
+    font-weight: bold;
+}
+
+a {
+    color: rgb(255, 0, 255);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+}
+
+a:hover {
+    color: rgba(128, 0, 128, 0.507);
+}
+
+header {
+    background-color: var(--fundo-principal);
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    text-align: center;
+}
+
+h2, h3 {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h2 {
+    color: yellowgreen;
+}
+
+h3 {
+    width: 300px;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--texto);
+    box-shadow: 0px 5px 15px black;
+}
+
+.card {
+    width: 300px;
+    margin: auto;
+    background-color: var(--fundo-card);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+p {
+    font-family: 'Lora', serif;
+    text-indent: 30px;
+    line-height: 1.6;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+}
+
+body.escuro p {
+    color: white;
+}
+
+body.escuro h3 {
+    color: white;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    i#burguer {
+        display: none;
+    }
+
+    menu {
+        display: block;
+    }
+
+    .principal {
+        background-color: palegoldenrod;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        position: sticky;
+        top: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+} 
+
+:root {
+    --fundo-principal: white;
+    --texto: black;
+    --texto-inverso: white;
+    --destaque: purple;
+    --destaque-inverso: rgba(128, 0, 128, 0.507);
+    --fundo-card: green;
+}
+
+body.escuro {
+    --fundo-principal: #01002c;
+    --texto: #000000;
+    --texto-inverso: #333333;
+    --destaque: #1a0020;
+    --destaque-inverso: #1a002098;
+    --fundo-card: #0b3800;
+}
+
+body {
    background-color: var(--fundo-principal);
    color: var(--texto);
    transition: background-color 0.5s, color 0.5s;
@@ -51,7 +242,7 @@ menu {
     right: 10px; 
     z-index: 999;
     
-    background-color: rgba(0, 0, 255, 0.438); 
+    background-color: rgba(0, 0, 255, 0.767); 
     border-radius: 15px; 
     padding: 15px;
 }
@@ -67,7 +258,7 @@ menu > ul > li > a {
 }
 
 a {
-    color: purple;
+    color: rgb(255, 0, 255);
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
     font-size: 15px;
@@ -77,8 +268,12 @@ a:hover {
     color: rgba(128, 0, 128, 0.507);
 }
 
-header {
+/*header {
     background-color: black;
+}*/
+
+/*header {
+    background-color: var(--fundo-principal);
 }
 
 h1 {
@@ -95,7 +290,7 @@ h2 {
     color: yellowgreen;
 }
 
-h3 {
+/*h3 {
    width: 300px;
    text-align: center;
    border-radius: 15px;
@@ -104,13 +299,29 @@ h3 {
    box-shadow: 0px 5px 15px black;
 }
 
-.card {
+h3 {
+    width: 300px;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--texto);
+    box-shadow: 0px 5px 15px black;
+}
+
+/*.card {
     width: 300px;
     margin: auto;
     background-color: green;
     border-radius: 15px;
     overflow: hidden;
-    /*margin-left: 20px;*/
+}*/
+
+/*.card {
+    width: 300px;
+    margin: auto;
+    background-color: var(--fundo-card);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .card img {
